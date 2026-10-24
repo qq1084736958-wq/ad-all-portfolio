@@ -1,0 +1,75 @@
+# ① Brief 投放简报 Mapping DSL
+# ---------------------------------------
+# 静态 KV 表，但 value 列是 C 列（label 在 B 列，D 列是 notes 占位）
+# ---------------------------------------
+sheet_name: "① Brief 投放简报"
+description: "投放简报 - 品牌/市场/预算/产品等"
+
+table_type: static_kv
+
+fields:
+  brand:
+    label_cell: B5
+    value_cell: C5
+    label_text: "品牌 Brand"
+
+  market:
+    label_cell: B6
+    value_cell: C6
+    label_text: "投放市场 Market"
+
+  platforms:
+    label_cell: B7
+    value_cell: C7
+    label_text: "投放平台 Platforms"
+    default: ""  # 不预设渠道名称，由用户在 Brief 中确认
+
+  campaign_period:
+    label_cell: B8
+    value_cell: C8
+    label_text: "投放周期 Campaign Period"
+
+  total_budget:
+    label_cell: B9
+    value_cell: C9
+    label_text: "总预算 Total Budget"
+
+  landing_page:
+    label_cell: B10
+    value_cell: C10
+    label_text: "Landing Page"
+
+  product:
+    label_cell: B11
+    value_cell: C11
+    label_text: "推广产品 Product(s)"
+
+  budget_strategy:
+    label_cell: B12
+    value_cell: C12
+    label_text: "产品预算策略 Budget Strategy"
+
+  price_range:
+    label_cell: B13
+    value_cell: C13
+    label_text: "产品价格区间 Price Range"
+
+  core_audience:
+    label_cell: B14
+    value_cell: C14
+    label_text: "核心人群 Core Audience"
+
+  age_range:
+    label_cell: B15
+    value_cell: C15
+    label_text: "年龄层 Age Range"
+
+  competitor_brands:
+    label_cell: B16
+    value_cell: C16
+    label_text: "竞品品牌 Competitor Brands"
+
+  key_regions:
+    label_cell: B17
+    value_cell: C17
+    label_text: "重点投放区域 Key Regions"

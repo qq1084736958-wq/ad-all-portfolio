@@ -1,0 +1,46 @@
+# ② Summary 项目概述 Mapping DSL
+sheet_name: "② Summary 项目概述"
+description: "项目概述 - 背景/USP/产品/素材/广告形式等"
+
+table_type: static_kv
+
+fields:
+  background:
+    label_cell: B5
+    value_cell: C5
+    label_text: "背景 Background"
+
+  usp:
+    label_cell: B6
+    value_cell: C6
+    label_text: "核心竞争力 USP"
+
+  product:
+    label_cell: B7
+    value_cell: C7
+    label_text: "推广产品 Product"
+
+  creative_format:
+    label_cell: B8
+    value_cell: C8
+    label_text: "素材形式 Creative Format"
+
+  ad_format:
+    label_cell: B9
+    value_cell: C9
+    label_text: "广告形式 Ad Format"
+
+  region:
+    label_cell: B10
+    value_cell: C10
+    label_text: "投放地区 Region"
+
+  audience_persona:
+    label_cell: B11
+    value_cell: C11
+    label_text: "核心受众画像 Audience Persona"
+
+  overall_strategy:
+    label_cell: B12
+    value_cell: C12
+    label_text: "整体策略 Overall Strategy"

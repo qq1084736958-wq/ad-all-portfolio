@@ -1,0 +1,60 @@
+# ⑤ TO-DO 任务清单 Mapping DSL
+# ---------------------------------------
+# 标准 list_row 表：R4 表头，R5 起数据
+# 可增删行（数据条数随项目变化）
+# ---------------------------------------
+sheet_name: "⑤ TO-DO 任务清单"
+description: "任务清单，每行一条任务"
+
+table_type: list_row
+
+# 表头行（校验用）
+header_row: 4
+header_validate:
+  B4: "任务名称 Task"
+  C4: "详情描述 Details"
+  D4: "状态 Status"
+  E4: "类型 Type"
+  F4: "执行/协助 Role"
+  G4: "人员 Owner"
+  H4: "截止时间 Due Date"
+  I4: "关联项 Parent Item"
+
+# 数据起始行
+data_start_row: 5
+style_source_row: 5
+
+# 模板 R5-R34 预留 30 行（有样式但无内容）
+template_reserved_rows: 30
+
+# 空行清理：min_keep=3 保留 3 行空模板供人工补充
+cleanup_empty_rows:
+  enabled: true
+  min_keep: 3
+
+# 字段到列的映射
+columns:
+  task:
+    col: B
+    field: task
+  details:
+    col: C
+    field: details
+  status:
+    col: D
+    field: status
+  type:
+    col: E
+    field: type
+  role:
+    col: F
+    field: role
+  owner:
+    col: G
+    field: owner
+  due_date:
+    col: H
+    field: due_date
+  parent:
+    col: I
+    field: parent

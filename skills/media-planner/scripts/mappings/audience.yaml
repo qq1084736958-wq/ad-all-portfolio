@@ -1,0 +1,74 @@
+# Audience 受众画像 Mapping DSL
+# ---------------------------------------
+# grouped_list_row：分组行列表
+# - 写入后按 merge_rules 重建合并单元格
+# - 支持"按列值连续相同则合并"
+# ---------------------------------------
+sheet_name: "Audience 受众画像"
+description: "受众画像分组表 - A/B/C/D 四大组"
+
+table_type: grouped_list_row
+
+header_row: 2
+header_validate:
+  B2: "媒体"
+  C2: "Label命名名称"
+  D2: "Target audience"
+  E2: "Audience label"
+  F2: "Location"
+  G2: "Age"
+  H2: "Gender（Male/Female/All）"
+
+data_start_row: 3
+style_source_row: 3
+template_reserved_rows: 8
+
+cleanup_empty_rows:
+  enabled: true
+  min_keep: 0
+
+pre_unmerge: true
+
+# 列映射
+# ❗ 关键：E 列表头显示"Audience label"但语义为"兴趣关键词"（如 skincare, moisturizer）
+#    MediaPlan.ad_sets[].targeting 引用的是 C 列 label_name（如 A/B1/C）而非本列
+columns:
+  media:
+    col: B
+    field: media
+  label_name:
+    col: C
+    field: label_name
+  target_audience:
+    col: D
+    field: target_audience
+  interest_keywords:
+    col: E
+    field: interest_keywords
+  location:
+    col: F
+    field: location
+  age:
+    col: G
+    field: age
+  gender:
+    col: H
+    field: gender
+
+# 分组合并规则：写入后按列值连续相同则合并
+# 用于保持模板视觉：B 列合并成 1 格，C 列 B1-B4 视为 "B" 合并
+merge_rules:
+  - col: B
+    strategy: consecutive_same  # 连续相同值合并
+  - col: C
+    strategy: group_prefix      # 按前缀分组（B0/B1/B2/B3/B4 → B）
+    prefix_rules:
+      - prefix_len: 1  # 取首字母
+        group_label: "B"  # 合并后显示的标签
+        applies_to: ["B0", "B1", "B2", "B3", "B4"]
+  - col: F
+    strategy: consecutive_same
+  - col: G
+    strategy: consecutive_same
+  - col: H
+    strategy: consecutive_same

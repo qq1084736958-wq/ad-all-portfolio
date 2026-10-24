@@ -1,0 +1,40 @@
+{
+  "_comment": "阶段权重先验配置（无客户确认占比时使用，Agent 根据 Brief 选择 profile）",
+  "_usage": "code 只读取此文件，不内置数值；Agent 可按产品阶段选择，也可自定义覆盖",
+  "profiles": {
+    "new_launch": {
+      "description": "新品首发（预热-预售-爆发-持续）",
+      "phases": [
+        {"objective": "awareness", "share": 0.10, "label": "预热期"},
+        {"objective": "consideration", "share": 0.25, "label": "预售期"},
+        {"objective": "conversion", "share": 0.40, "label": "爆发期"},
+        {"objective": "retention", "share": 0.25, "label": "持续期"}
+      ]
+    },
+    "evergreen_seeding": {
+      "description": "长周期种草（认知-兴趣-考虑-收割）",
+      "phases": [
+        {"objective": "awareness", "share": 0.15, "label": "认知期"},
+        {"objective": "consideration", "share": 0.30, "label": "种草期"},
+        {"objective": "conversion", "share": 0.15, "label": "转化期"},
+        {"objective": "retention", "share": 0.40, "label": "收割期"}
+      ]
+    },
+    "promo_event": {
+      "description": "节点大促（预热-蓄水-爆发-返场）",
+      "phases": [
+        {"objective": "awareness", "share": 0.05, "label": "预热期"},
+        {"objective": "consideration", "share": 0.15, "label": "蓄水期"},
+        {"objective": "conversion", "share": 0.55, "label": "爆发期"},
+        {"objective": "retention", "share": 0.25, "label": "返场期"}
+      ]
+    },
+    "brand_awareness_only": {
+      "description": "纯品牌曝光（无转化目标）",
+      "phases": [
+        {"objective": "awareness", "share": 0.60, "label": "认知期"},
+        {"objective": "consideration", "share": 0.40, "label": "兴趣期"}
+      ]
+    }
+  }
+}

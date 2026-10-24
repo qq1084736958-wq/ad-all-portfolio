@@ -1,0 +1,50 @@
+sheet_name: "③ Strategy 阶段策略"
+description: "投放阶段策略：每阶段一行"
+table_type: list_row
+
+header_row: 4
+header_validate:
+  B4: "时间 Period"
+  C4: "阶段 Phase"
+  D4: "预算占比 Budget %"
+  E4: "目标 Goal"
+  F4: "具体动作 Actions"
+  G4: "KPI Target（客户确认）"
+  H4: "落地页策略 LP Strategy"
+  I4: "广告形式 Ad Format"
+
+data_start_row: 5
+style_source_row: 5
+template_reserved_rows: 3  # P1/P2/P3 三行预配色（浅黄/浅橙/浅绿），与模板对齐
+
+cleanup_empty_rows:
+  enabled: true
+  min_keep: 0
+
+columns:
+  period:
+    col: B
+    field: period
+  phase:
+    col: C
+    field: phase
+  budget_pct:
+    col: D
+    field: budget_pct
+    number_format: "0.0%"
+  goal:
+    col: E
+    field: goal
+  actions:
+    col: F
+    field: actions
+  kpi_target:
+    col: G
+    field: kpi_target
+    fallback_field: kpi   # 兼容旧数据：若无 kpi_target 则用 kpi 字段
+  lp_strategy:
+    col: H
+    field: lp_strategy
+  ad_format:
+    col: I
+    field: ad_format

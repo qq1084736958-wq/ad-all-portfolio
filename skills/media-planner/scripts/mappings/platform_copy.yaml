@@ -1,0 +1,65 @@
+# 平台文案 Mapping DSL
+# ---------------------------------------
+# list_col 类型：按列展开
+# - B 列是行标签（产品名称/层级/Primary text/Headline/Description/CTA）
+# - 从 C 列开始，每产品一列
+# - 产品少 → 删除多余列；产品多 → 插入新列并从 C 列继承样式
+# ---------------------------------------
+sheet_name: "平台文案"
+description: "广告平台文案表，每产品一列"
+
+table_type: list_col
+
+# 标签列：存放行标签（product_name / level / primary_text / ...）
+label_col: B
+header_validate:
+  B2: "产品名称"
+  B3: "平台 / 渠道"
+  B4: "层级"
+  B5: "主文案 / Primary text"
+  B6: "标题 / Headline"
+  B7: "描述 / Description"
+  B8: "行动号召 / CTA"
+
+# 数据列：从 C 列开始
+data_start_col: C
+
+# 样式继承：新插入列从 C 列复制（含列宽）
+style_source_col: C
+
+# 模板预留的数据列数（硬编码，避免扫描误判）
+# 模板 平台文案 sheet 从 C 到 F 共预留 4 列
+template_reserved_cols: 4
+
+# 空列清理：产品数 < 模板预留列数时，删除尾部多余列
+cleanup_empty_cols:
+  enabled: true
+  min_keep: 0
+
+# 行映射：每个 field 对应一行
+rows:
+  product_name:
+    row: 2
+    field: product_name
+  platform:
+    row: 3
+    field: platform
+  level:
+    row: 4
+    field: level
+    # 每产品的"层级"默认是 "产品"，可省略时自动填充
+    default: "产品"
+  primary_text:
+    row: 5
+    field: primary_text
+  headline:
+    row: 6
+    field: headline
+  description:
+    row: 7
+    field: description
+  call_to_action:
+    row: 8
+    field: call_to_action
+    # CTA 默认值请根据平台及广告目标选择合适的行动指令
+    default: "了解更多"

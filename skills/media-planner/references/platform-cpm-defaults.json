@@ -1,0 +1,30 @@
+{
+  "_comment": "平台 CPM 默认参考区间（无搜索证据时降级使用，单位 USD）",
+  "_usage": "搜索不到真实 CPM 时按市场发展程度选档，preflight 自动标 WARN",
+  "market_tiers": {
+    "developed": {
+      "description": "北美/西欧/日韩/澳新",
+      "meta": {"cpm_low": 8, "cpm_mid": 12, "cpm_high": 18, "reach_potential": 0.65},
+      "tiktok": {"cpm_low": 6, "cpm_mid": 10, "cpm_high": 15, "reach_potential": 0.55},
+      "youtube": {"cpm_low": 7, "cpm_mid": 11, "cpm_high": 16, "reach_potential": 0.70},
+      "google_search": {"cpm_low": 10, "cpm_mid": 18, "cpm_high": 30, "reach_potential": 0.40},
+      "default": {"cpm_low": 5, "cpm_mid": 8, "cpm_high": 12, "reach_potential": 0.50}
+    },
+    "emerging": {
+      "description": "东南亚/拉美/中东/东欧",
+      "meta": {"cpm_low": 3, "cpm_mid": 5, "cpm_high": 8, "reach_potential": 0.55},
+      "tiktok": {"cpm_low": 2, "cpm_mid": 4, "cpm_high": 7, "reach_potential": 0.50},
+      "youtube": {"cpm_low": 3, "cpm_mid": 5, "cpm_high": 9, "reach_potential": 0.60},
+      "google_search": {"cpm_low": 4, "cpm_mid": 7, "cpm_high": 12, "reach_potential": 0.35},
+      "default": {"cpm_low": 2, "cpm_mid": 4, "cpm_high": 6, "reach_potential": 0.45}
+    },
+    "frontier": {
+      "description": "非洲/南亚/中亚/南美北部",
+      "meta": {"cpm_low": 1.5, "cpm_mid": 3, "cpm_high": 5, "reach_potential": 0.35},
+      "tiktok": {"cpm_low": 1, "cpm_mid": 2.5, "cpm_high": 4, "reach_potential": 0.30},
+      "youtube": {"cpm_low": 1.5, "cpm_mid": 3, "cpm_high": 6, "reach_potential": 0.40},
+      "google_search": {"cpm_low": 2, "cpm_mid": 4, "cpm_high": 8, "reach_potential": 0.20},
+      "default": {"cpm_low": 1, "cpm_mid": 2, "cpm_high": 4, "reach_potential": 0.25}
+    }
+  }
+}

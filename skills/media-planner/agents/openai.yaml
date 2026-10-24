@@ -1,0 +1,4 @@
+interface:
+  display_name: "Media Planner v1.5.4"
+  short_description: "生成、修改与校验全平台通用媒体计划，并输出对客与内部双工作簿"
+  default_prompt: "使用 $media-planner-v154 基于我提供的材料生成或修改全平台通用 Media Plan，并分别输出对客工作簿和内部工作簿。"

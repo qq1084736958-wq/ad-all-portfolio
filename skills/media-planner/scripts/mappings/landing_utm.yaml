@@ -1,0 +1,72 @@
+# Landing Page & UTM Mapping DSL
+# ---------------------------------------
+# 标准 list_row：R2 表头，R3 起数据
+# 列数多（B-N 共 13 列）
+# ---------------------------------------
+sheet_name: "Landing Page & UTM"
+description: "每行一个 UTM 组合"
+
+table_type: list_row
+
+header_row: 2
+header_validate:
+  C2: "产品名称"
+  D2: "utm_soure"
+  E2: "utm_medium"
+  F2: "utm_campaign"
+  G2: "utm_term"
+  H2: "utm_content"
+  I2: "产品"
+  J2: "开始时间"
+  K2: "landing page with UTM"
+  L2: "落地页"
+  M2: "UTM"
+  N2: "landing page with UTM"
+
+data_start_row: 3
+style_source_row: 3
+
+# 模板 R3-R12 预留 10 行（有样式但无内容，扫描会误判）
+template_reserved_rows: 10
+
+cleanup_empty_rows:
+  enabled: true
+  min_keep: 0
+
+columns:
+  product_name:
+    col: C
+    field: product_name
+  utm_source:
+    col: D
+    field: utm_source
+  utm_medium:
+    col: E
+    field: utm_medium
+  utm_campaign:
+    col: F
+    field: utm_campaign
+  utm_term:
+    col: G
+    field: utm_term
+  utm_content:
+    col: H
+    field: utm_content
+  product:
+    col: I
+    field: product
+  start_date:
+    col: J
+    field: start_date
+  landing_with_utm_1:
+    col: K
+    field: landing_with_utm_1
+  landing_page:
+    col: L
+    field: landing_page
+  utm_str:
+    col: M
+    field: utm_str
+  landing_with_utm_2:
+    col: N
+    field: landing_with_utm_2

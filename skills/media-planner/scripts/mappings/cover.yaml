@@ -1,0 +1,90 @@
+# Cover 封面表 Mapping DSL
+# ---------------------------------------
+# 这是最简单的表：静态 key-value 结构，无增删
+# ---------------------------------------
+sheet_name: "封面 Cover"
+description: "项目封面，展示项目元信息"
+
+# 类型：static_kv = 静态键值对表（每个字段有固定位置）
+table_type: static_kv
+
+# 字段映射
+# 每个 field 有：
+#   - label_cell: 标签所在单元格（只用于校验，确保模板没变）
+#   - value_cell: 要写入数据的单元格
+#   - label_text: 预期的标签文本（若不匹配则告警）
+fields:
+  project_name:
+    label_cell: B5
+    value_cell: C5
+    label_text: "项目名称 Project Name"
+
+  brand:
+    label_cell: B6
+    value_cell: C6
+    label_text: "品牌 Brand"
+
+  market:
+    label_cell: B7
+    value_cell: C7
+    label_text: "投放市场 Market"
+
+  campaign_period:
+    label_cell: B8
+    value_cell: C8
+    label_text: "投放周期 Campaign Period"
+
+  total_budget:
+    label_cell: B9
+    value_cell: C9
+    label_text: "总预算 Total Budget"
+
+  currency:
+    label_cell: B10
+    value_cell: C10
+    label_text: "币种 Currency"
+    default: "USD"
+
+  owner:
+    label_cell: B11
+    value_cell: C11
+    label_text: "负责人 Owner"
+
+  team:
+    label_cell: B12
+    value_cell: C12
+    label_text: "协作团队 Team"
+
+  version:
+    label_cell: B13
+    value_cell: C13
+    label_text: "版本 Version"
+
+  last_updated:
+    label_cell: B14
+    value_cell: C14
+    label_text: "最后更新 Last Updated"
+    auto: today  # 若不传则自动填今天
+
+  # ── 交付状态区块（v5.2 新增，来自 _meta）──
+  deliverable_status:
+    label_cell: B16
+    value_cell: C16
+    label_text: "交付状态 Deliverable Status"
+    note: "draft = 草案（含未确认字段）；final = 正式版（Step 6.2 全通过）"
+
+  revision:
+    label_cell: B17
+    value_cell: C17
+    label_text: "版本号 Revision"
+
+  confirmer:
+    label_cell: B18
+    value_cell: C18
+    label_text: "确认人 Confirmer"
+    note: "final 状态时必填，open_id 或姓名"
+
+  updated_at:
+    label_cell: B19
+    value_cell: C19
+    label_text: "最后更新 Updated At"
